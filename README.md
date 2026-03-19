@@ -1,10 +1,8 @@
 # HMCTS Dev Test Backend
-This will be the backend for the brand new HMCTS case management system. As a potential candidate we are leaving
-this in your hands. Please refer to the brief for the complete list of tasks! Complete as much as you can and be
-as creative as you want.
-
 You should be able to run `./gradlew build` to start with to ensure it builds successfully. Then from that you
 can run the service in IntelliJ (or your IDE of choice) or however you normally would.
 
-There is an example endpoint provided to retrieve an example of a case. You are free to add/remove fields as you
-wish.
+To run the PostgreSQL database, please run this command
+docker run --name hmcts-postgres   -e POSTGRES_USER=postgres   -e POSTGRES_PASSWORD=postgres   -e POSTGRES_DB=hmcts   -p 5432:5432   -d postgres
+if you have issues connecting to the database, this might help
+sudo docker exec -it hmcts-postgres psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE hmcts TO postgres;"
