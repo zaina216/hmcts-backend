@@ -2,7 +2,6 @@ package uk.gov.hmcts.reform.dev;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import uk.gov.hmcts.reform.dev.controllers.TaskController;
@@ -80,7 +79,7 @@ class TaskControllerUnitTest {
 
         ResponseEntity<ExampleTask> response = controller.getTaskById(99);
 
-        assertThat(response.getStatusCodeValue()).isEqualTo(404);
+        assertThat(response.getStatusCode().value()).isEqualTo(404);
     }
 
 
@@ -90,7 +89,7 @@ class TaskControllerUnitTest {
 
         var response = controller.deleteTask(1);
 
-        assertThat(response.getStatusCodeValue()).isEqualTo(204);
+        assertThat(response.getStatusCode().value()).isEqualTo(204);
 
         verify(repository).deleteById(1);
     }
@@ -101,6 +100,6 @@ class TaskControllerUnitTest {
 
         var response = controller.deleteTask(1);
 
-        assertThat(response.getStatusCodeValue()).isEqualTo(404);
+        assertThat(response.getStatusCode().value()).isEqualTo(404);
     }
 }

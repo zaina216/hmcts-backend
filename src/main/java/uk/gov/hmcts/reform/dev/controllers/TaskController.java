@@ -31,7 +31,6 @@ public class TaskController {
         exampleTask.setCreatedDate(LocalDate.now());
         ExampleTask savedTask = repository.save(exampleTask);
 
-        var test = ResponseEntity.ok(savedTask);
         return ResponseEntity.ok(savedTask);
     }
 
